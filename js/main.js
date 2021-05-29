@@ -1,5 +1,40 @@
 function DataTable(config, data) {
-// содержимое этой функции вам и нужно написать :)
+    let tableArea = document.querySelector(config.parent)
+    let table = document.createElement('table')
+
+    let tableRowHead = document.createElement('tr')
+    let tableHeadBlock = document.createElement('thead')
+    let tableHead = document.createElement('th')
+    tableHead.innerText = '№'
+    tableRowHead.appendChild(tableHead)
+    tableHeadBlock.appendChild(tableRowHead)
+    table.appendChild(tableHeadBlock)
+    for (let i = 0; i < config.columns.length; i++) {
+        let th = document.createElement('th');
+        th.innerText = config.columns[i].title;
+        tableRowHead.appendChild(th);
+    }
+
+    let tableBodyBlock = document.createElement('tbody')
+    for (let i = 1; i <= data.length; i++) {
+        let tableRow = document.createElement('tr')
+        let tableData = document.createElement('td')
+        tableData.innerText = `${i}`
+        let nameData = document.createElement('td')
+        nameData.innerText = `${data[i-1].name}`
+        let surnameData = document.createElement('td')
+        surnameData.innerText = `${data[i-1].surname}`
+        let ageData = document.createElement('td')
+        ageData.innerText = `${data[i-1].age}`
+        tableRow.appendChild(tableData);
+        tableRow.appendChild(nameData);
+        tableRow.appendChild(surnameData);
+        tableRow.appendChild(ageData);
+        tableBodyBlock.appendChild(tableRow)
+    }
+    
+    table.appendChild(tableBodyBlock)
+    tableArea.appendChild(table)
 }
 
 const config1 = {
@@ -17,30 +52,3 @@ const users = [
 ];
 
 DataTable(config1, users);
-
-// <div id="usersTable">
-//     <table>
-//         <thead>
-//         <tr>
-//             <th>№</th>
-//             <th>Имя</th>
-//             <th>Фамилия</th>
-//             <th>Возраст</th>
-//         </tr>
-//         </thead>
-//         <tbody>
-//         <tr>
-//             <td>1</td>
-//             <td>Вася</td>
-//             <td>Петров</td>
-//             <td>12</td>
-//         </tr>
-//         <tr>
-//             <td>2</td>
-//             <td>Вася</td>
-//             <td>Васечкин</td>
-//             <td>15</td>
-//         </tr>
-//         </tbody>
-//     </table>
-// </div>

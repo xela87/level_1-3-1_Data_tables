@@ -1,0 +1,14 @@
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    background: gainsboro;
+}
+
+div {
+    margin: 15px auto;
+    width: 50%;
+    background: darkgrey;
+    display: flex;
+    justify-items: center;
+    border-radius: 5px;
+}
+
