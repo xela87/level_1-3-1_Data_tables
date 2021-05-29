@@ -32,7 +32,7 @@ function DataTable(config, data) {
         tableRow.appendChild(ageData);
         tableBodyBlock.appendChild(tableRow)
     }
-    
+
     table.appendChild(tableBodyBlock)
     tableArea.appendChild(table)
 }
@@ -48,6 +48,10 @@ const config1 = {
 
 const users = [
     {id: 30050, name: 'Вася', surname: 'Петров', age: 12},
+    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
+    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
+    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
+    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
     {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
 ];
 
