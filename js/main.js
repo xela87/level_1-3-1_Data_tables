@@ -1,7 +1,6 @@
 function DataTable(config, data) {
     let tableArea = document.querySelector(config.parent)
     let table = document.createElement('table')
-
     let tableRowHead = document.createElement('tr')
     let tableHeadBlock = document.createElement('thead')
     let tableHead = document.createElement('th')
@@ -26,11 +25,8 @@ function DataTable(config, data) {
         surnameData.innerText = `${data[i-1].surname}`
         let ageData = document.createElement('td')
         ageData.innerText = `${data[i-1].age}`
-        tableRow.appendChild(tableData);
-        tableRow.appendChild(nameData);
-        tableRow.appendChild(surnameData);
-        tableRow.appendChild(ageData);
-        tableBodyBlock.appendChild(tableRow)
+        tableRow.append(tableData,nameData,surnameData,ageData)
+        tableBodyBlock.append(tableRow)
     }
 
     table.appendChild(tableBodyBlock)

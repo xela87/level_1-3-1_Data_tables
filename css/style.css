@@ -16,10 +16,6 @@ body {
     border-radius: 5px;
 }
 
-#usersTable2 {
-
-}
-
 h1, h2, table {
     margin: 0 auto;
     text-align: center;
@@ -28,9 +24,17 @@ h1, h2, table {
 
 table, th, td {
     border-spacing: 0;
-    border: 2px dimgray solid;
+    border: 1px slategray solid;
 }
 
-th ,td {
+thead > tr {
+    background-color: dimgrey;
+}
+
+tr {
     background: lightgray;
+}
+
+tr:hover {
+    background-color: rgba(145,144,146,0.45)
 }
