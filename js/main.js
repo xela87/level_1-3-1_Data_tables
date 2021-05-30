@@ -1,34 +1,34 @@
 function DataTable(config, data) {
     let tableArea = document.querySelector(config.parent)
     let table = document.createElement('table')
-    let tableRowHead = document.createElement('tr')
+    let headRow = document.createElement('tr')
     let tableHeadBlock = document.createElement('thead')
-    let tableHead = document.createElement('th')
-    tableHead.innerText = '№'
-    tableRowHead.appendChild(tableHead)
-    tableHeadBlock.appendChild(tableRowHead)
-    table.appendChild(tableHeadBlock)
-    for (let i = 0; i < config.columns.length; i++) {
+
+    for (let i = 0; i <= config.columns.length; i++) {
         let th = document.createElement('th');
-        th.innerText = config.columns[i].title;
-        tableRowHead.appendChild(th);
+        i === 0 ? th.innerText = '№' : th.innerText = config.columns[i - 1].title;
+        headRow.appendChild(th);
     }
+    tableHeadBlock.appendChild(headRow)
+    table.appendChild(tableHeadBlock)
 
     let tableBodyBlock = document.createElement('tbody')
-    for (let i = 1; i <= data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         let tableRow = document.createElement('tr')
-        let tableData = document.createElement('td')
-        tableData.innerText = `${i}`
+        let numberOfRow = document.createElement('td')
+        numberOfRow.innerText = `${i + 1}`
         let nameData = document.createElement('td')
-        nameData.innerText = `${data[i-1].name}`
+        nameData.innerText = `${data[i].name}`
         let surnameData = document.createElement('td')
-        surnameData.innerText = `${data[i-1].surname}`
+        surnameData.innerText = `${data[i].surname}`
         let ageData = document.createElement('td')
-        ageData.innerText = `${data[i-1].age}`
-        tableRow.append(tableData,nameData,surnameData,ageData)
+        ageData.innerText = `${data[i].age}`
+        tableRow.append(numberOfRow, nameData, surnameData, ageData)
+        if (i % 2 !== 0) {
+            tableRow.classList.add('dark-row');
+        }
         tableBodyBlock.append(tableRow)
     }
-
     table.appendChild(tableBodyBlock)
     tableArea.appendChild(table)
 }
@@ -52,3 +52,11 @@ const users = [
 ];
 
 DataTable(config1, users);
+
+
+new Tabulator("#usersTable1", {
+    data: users,
+    columns: config1.columns,
+    autoColumns: true,
+    layout: "fitColumns",
+});
