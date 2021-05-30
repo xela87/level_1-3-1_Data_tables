@@ -5,22 +5,32 @@ body {
     font-weight: 400;
 }
 
-div {
+#usersTable {
     margin: 15px auto;
     width: 50%;
     padding: 20px;
     background: darkgrey;
     display: flex;
+    flex-direction: column;
     justify-items: center;
     border-radius: 5px;
 }
 
-table {
+#usersTable2 {
+
+}
+
+h1, h2, table {
     margin: 0 auto;
     text-align: center;
     width: inherit;
 }
 
 table, th, td {
-    border: 1px dimgray solid;
+    border-spacing: 0;
+    border: 2px dimgray solid;
+}
+
+th ,td {
+    background: lightgray;
 }

@@ -40,19 +40,19 @@ function DataTable(config, data) {
 const config1 = {
     parent: '#usersTable',
     columns: [
-        {title: 'Имя', value: 'name'},
-        {title: 'Фамилия', value: 'surname'},
-        {title: 'Возраст', value: 'age'},
+        {title: 'Ім`я', value: 'name'},
+        {title: 'Прізвище', value: 'surname'},
+        {title: 'Вік', value: 'age'},
     ]
 };
 
 const users = [
-    {id: 30050, name: 'Вася', surname: 'Петров', age: 12},
-    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
-    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
-    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
-    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
-    {id: 30051, name: 'Вася', surname: 'Васечкин', age: 15},
+    {id: 30050, name: 'Василь', surname: 'Петров', age: 12},
+    {id: 30051, name: 'Петро', surname: 'Васильєв', age: 15},
+    {id: 30052, name: 'Микола', surname: 'Іванов', age: 25},
+    {id: 30053, name: 'Іван', surname: 'Миколаєв', age: 27},
+    {id: 30054, name: 'Ольга', surname: 'Пасічна', age: 5},
+    {id: 30055, name: 'Катерина', surname: 'Сковорода', age: 29},
 ];
 
 DataTable(config1, users);
