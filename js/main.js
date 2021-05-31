@@ -36,9 +36,9 @@ function DataTable(config, data) {
 const config1 = {
     parent: '#usersTable',
     columns: [
-        {title: 'Ім`я', value: 'name'},
-        {title: 'Прізвище', value: 'surname'},
-        {title: 'Вік', value: 'age'},
+        {title: 'Ім`я', field: 'name'},
+        {title: 'Прізвище', field: 'surname'},
+        {title: 'Вік', field: 'age'},
     ]
 };
 
@@ -51,12 +51,11 @@ const users = [
     {id: 30055, name: 'Катерина', surname: 'Сковорода', age: 29},
 ];
 
-DataTable(config1, users);
-
-
-new Tabulator("#usersTable1", {
+let table = new Tabulator("#usersTable1", {
     data: users,
     columns: config1.columns,
-    autoColumns: true,
     layout: "fitColumns",
 });
+table.addColumn({title:'№', field: 'number', formatter:'rownum'}, true)
+
+DataTable(config1, users);
