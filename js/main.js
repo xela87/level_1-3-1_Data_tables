@@ -1,8 +1,8 @@
 function DataTable(config, data) {
     let tableArea = document.querySelector(config.parent)
     let table = document.createElement('table')
-    let headRow = document.createElement('tr')
     let tableHeadBlock = document.createElement('thead')
+    let headRow = document.createElement('tr')
 
     for (let i = 0; i <= config.columns.length; i++) {
         let th = document.createElement('th');
@@ -15,19 +15,14 @@ function DataTable(config, data) {
     let tableBodyBlock = document.createElement('tbody')
     for (let i = 0; i < data.length; i++) {
         let tableRow = document.createElement('tr')
-        let numberOfRow = document.createElement('td')
-        numberOfRow.innerText = `${i + 1}`
-        let nameData = document.createElement('td')
-        nameData.innerText = `${data[i].name}`
-        let surnameData = document.createElement('td')
-        surnameData.innerText = `${data[i].surname}`
-        let ageData = document.createElement('td')
-        ageData.innerText = `${data[i].age}`
-        tableRow.append(numberOfRow, nameData, surnameData, ageData)
+        tableRow.insertCell().innerText = `${i + 1}`
+        tableRow.insertCell().innerText = `${data[i].name}`
+        tableRow.insertCell().innerText = `${data[i].surname}`
+        tableRow.insertCell().innerText = `${data[i].age}`
         if (i % 2 !== 0) {
             tableRow.classList.add('dark-row');
         }
-        tableBodyBlock.append(tableRow)
+        tableBodyBlock.appendChild(tableRow)
     }
     table.appendChild(tableBodyBlock)
     tableArea.appendChild(table)
@@ -56,6 +51,6 @@ let table = new Tabulator("#usersTable1", {
     columns: config1.columns,
     layout: "fitColumns",
 });
-table.addColumn({title:'№', field: 'number', formatter:'rownum'}, true)
+table.addColumn({title: '№', field: 'number', formatter: 'rownum'}, true)
 
 DataTable(config1, users);
